@@ -39,7 +39,7 @@ Find the next most worthwhile topic by combining historical performance, comment
 Generate a draft from the user's brand voice, style guide, and historical data. It also runs a freshness gate before drafting so the user does not write into a dead topic by accident.
 
 ### `/analyze`
-Run decision-first analysis on a finished draft. It checks algorithm red lines, upside drivers, suppression risks, style fit, and AI-tone traces.
+Run decision-first analysis on user-written text. By default, `/analyze` is diagnostic rather than generative: it preserves the original format, paragraphing, and wording, then gives pointed changes with a location, issue, suggested fix, rationale, and priority. It only produces a full rewrite when the user explicitly asks to rewrite. `brand_voice.md` is observation-only during analysis; `/draft` owns composition from a topic.
 
 ### `/predict`
 Estimate likely 24-hour performance from comparable historical posts so expectations are anchored in data.
@@ -130,8 +130,11 @@ That is a stronger and more honest product promise than claiming guaranteed resu
 
 ### Claude Code
 
+Add the repository as a single-plugin marketplace, then install the plugin from that marketplace:
+
 ```bash
-claude install-plugin https://github.com/akseolabs-seo/AK-Threads-booster
+claude plugin marketplace add https://github.com/akseolabs-seo/AK-Threads-booster
+claude plugin install ak-threads-booster@ak-threads-booster-marketplace
 ```
 
 ### Manual
