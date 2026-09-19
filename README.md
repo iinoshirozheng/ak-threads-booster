@@ -57,6 +57,8 @@ AK-Threads-Booster 是一套給 Threads 創作者用的 AI skill 系統。
 
 `/analyze` 是這套 skill 的 decision layer。
 
+當你貼上自己已經寫好的文字時，`/analyze` 預設只做診斷，不會默默把整篇重寫。它會保留原本的格式、分段與措辭，針對具體位置提出「哪裡有問題、建議怎麼改、為什麼、優先級」；只有你明確要求「重寫 / rewrite」時，才會產生完整改寫版本。`brand_voice.md` 在分析階段只作觀察依據，真正的生成工作由 `/draft` 負責。
+
 它會看：
 
 - 有沒有演算法紅線
@@ -191,8 +193,11 @@ AK-Threads-Booster 是一套以你的 Threads 歷史資料為核心的內容決�
 
 ### Claude Code
 
+把 repository 加成單一 plugin marketplace，再從 marketplace 安裝：
+
 ```bash
-claude install-plugin https://github.com/akseolabs-seo/AK-Threads-booster
+claude plugin marketplace add https://github.com/akseolabs-seo/AK-Threads-booster
+claude plugin install ak-threads-booster@ak-threads-booster-marketplace
 ```
 
 ### 手動安裝
